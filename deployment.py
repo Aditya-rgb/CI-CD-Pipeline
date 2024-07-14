@@ -1,7 +1,7 @@
 from github import Github, Auth
 
 # Replace with your GitHub access token
-ACCESS_TOKEN = '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'  # Ensure to replace with your token
+ACCESS_TOKEN = ''  # Ensure to replace with your token
 
 # Replace with the repository you want to check (e.g., "username/repo_name")
 REPO_NAME = "Aditya-rgb/CI-CD-Pipeline"
