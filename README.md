@@ -49,15 +49,58 @@
 > 7. **Cron:** To schedule the Python script to run at regular intervals.  
 >    Cron is typically pre-installed on most Unix-like systems.
 > 
-> 8. **AWS CLI (if using AWS EC2):** For managing AWS services from the command line.  
->    [AWS CLI Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 
 
 ## Configuration
 
-> **Configuration**
+**Configuration**
 > 
-> Instructions on how to configure the project after installation.
+> After installing the project, follow these steps to configure it:
+>
+> 1. **Clone the Repository:** If not already done, clone the repository to your local machine or server using:
+>    ```bash
+>    git clone https://github.com/Aditya-rgb/CI-CD-Pipeline.git /path/to/your/directory
+>    ```
+>
+> 2. **Set Up Nginx:** 
+>    - Open the Nginx configuration file (e.g., `/etc/nginx/sites-available/default`).
+>    - Update the server block to point to the project directory:
+>      ```nginx
+>      server {
+>          listen 80;
+>          server_name your_domain_or_IP;
+>
+>          location / {
+>              root /path/to/your/directory;
+>              index index.html;
+>          }
+>      }
+>      ```
+>    - Test the Nginx configuration:
+>      ```bash
+>      sudo nginx -t
+>      ```
+>    - Reload Nginx to apply changes:
+>      ```bash
+>      sudo systemctl reload nginx
+>      ```
+
+> 3. **Configure the Python Script:** 
+>    - Open the Python script (e.g., `ngi.py`) and update the `ACCESS_TOKEN` and `REPO_NAME` variables with your GitHub token and repository details.
+>
+> 4. **Set Up the Cron Job:**
+>    - Open the crontab editor:
+>      ```bash
+>      crontab -e
+>      ```
+>    - Add a line to schedule the Python script to run at your desired interval. For example, to run every 5 minutes:
+>      ```bash
+>      */5 * * * * /usr/bin/python3 /path/to/your/directory/ngi.py
+>      ```
+> 
+> 5. **Test the Configuration:**
+>    - Make a test commit to your GitHub repository and ensure the changes are pulled and deployed automatically to the Nginx server.
+
 
 ## Usage
 
