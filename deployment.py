@@ -35,3 +35,5 @@ if new_commits:
         print(f"- {commit['commit']['message']} by {commit['commit']['author']['name']} at {commit['commit']['author']['date']}")
 else:
     print("No new commits found.")
+
+
