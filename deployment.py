@@ -15,18 +15,27 @@ time_now = datetime.now(timezone.utc)  # Use timezone-aware datetime object
 
 # Fetch commits from the GitHub API
 response = requests.get(api_url)
-commits = response.json()
+
+# Check if the response is valid JSON
+try:
+    commits = response.json()
+except ValueError:
+    print("Failed to parse the response as JSON.")
+    commits = []
 
 # Check for new commits
 new_commits = []
 for commit in commits:
-    commit_time = datetime.strptime(commit['commit']['author']['date'], "%Y-%m-%dT%H:%M:%SZ")
-    
-    # Convert the commit_time to a timezone-aware datetime in UTC
-    commit_time = commit_time.replace(tzinfo=timezone.utc)
-    
-    if commit_time > (time_now - time_window):
-        new_commits.append(commit)
+    if isinstance(commit, dict):
+        commit_time = datetime.strptime(commit['commit']['author']['date'], "%Y-%m-%dT%H:%M:%SZ")
+        
+        # Convert the commit_time to a timezone-aware datetime in UTC
+        commit_time = commit_time.replace(tzinfo=timezone.utc)
+        
+        if commit_time > (time_now - time_window):
+            new_commits.append(commit)
+    else:
+        print(f"Unexpected commit format: {commit}")
 
 # Display new commits
 if new_commits:
@@ -35,5 +44,3 @@ if new_commits:
         print(f"- {commit['commit']['message']} by {commit['commit']['author']['name']} at {commit['commit']['author']['date']}")
 else:
     print("No new commits found.")
-
-
