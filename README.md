@@ -116,3 +116,61 @@ The problem statement involves automating the deployment of a website using a CI
    - Ensure the cron job is correctly set up and the process runs as expected.
    - The final outcome is automatic updates to the website with each commit made to the GitHub repository.
 
+
+
+
+
+# AWS EC2 Setup and CI/CD Pipeline Deployment
+
+## Steps to Initialize the AWS EC2 Instance and Deploy the CI/CD Pipeline:
+
+### 1. Launch EC2 Instance
+
+- **Step 1**: Sign in to the AWS Console.
+  - Navigate to the [AWS Management Console](https://aws.amazon.com/console/), and log in to your AWS account.
+  
+- **Step 2**: Navigate to EC2.
+  - From the services menu, search for **EC2** and select **Launch Instance**.
+
+- **Step 3**: Choose an Operating System.
+  - Opted for **Ubuntu** as the OS.
+
+- **Step 4**: Choose Architecture.
+  - Selected **64-bit (arm)** architecture.
+
+- **Step 5**: Choose Instance Type.
+  - Chose **t4g.micro** for this case.
+
+- **Step 6**: Configure Key Pair.
+  - Set up key-pair login for the EC2 instance (download the `.pem` file for future access).
+
+- **Step 7**: Configure Security Groups.
+  - Allowed the following traffic:
+    - SSH traffic
+    - HTTPS traffic
+    - HTTP traffic
+  - Selected "Anywhere 0.0.0.0/0" for all.
+
+- **Step 8**: Keep Storage as Default.
+
+- **Step 9**: Review the Instance Summary.
+  - Verified the summary on the right side of the screen before creating the instance.
+
+- **Step 10**: Launch the Instance.
+  - Launched the instance using **EC2 Instance Connect** instead of using the `.pem` file.
+
+- **Note**: Downloaded the key pair (`.pem` file) for future access.
+
+### 2. Install Nginx on AWS EC2 Instance
+
+Run the following commands on the EC2 instance:
+
+```bash
+sudo apt-get update
+sudo apt-get install nginx
+sudo service nginx start
+sudo service nginx status
+
+- Now, Copy the PublicIPs of the EC2 instance and paste it in your browser. A default nginx web-page shall appear...
+
+
