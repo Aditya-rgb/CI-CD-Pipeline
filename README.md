@@ -64,12 +64,77 @@ The problem statement involves automating the deployment of a website using a CI
 
 ## Deployment Phase
 
-1. **Set Up Server**:
-   - Set up an AWS EC2 instance or local Linux system.
-   - Place `deployment.py` and `cloning.sh` scripts on the server.
+### AWS EC2 Setup and CI/CD Pipeline Deployment
 
-2. **Update Python Script**:
-   - Change line 39 of `deployment.py` to set the correct path for the Bash script.
+### Steps to Initialize the AWS EC2 Instance and Deploy the CI/CD Pipeline:
+
+### 1. Launch EC2 Instance
+
+- **Step 1**: Sign in to the AWS Console.
+  - Navigate to the [AWS Management Console](https://aws.amazon.com/console/), and log in to your AWS account.
+  
+- **Step 2**: Navigate to EC2.
+  - From the services menu, search for **EC2** and select **Launch Instance**.
+
+- **Step 3**: Choose an Operating System.
+  - Opted for **Ubuntu** as the OS.
+
+- **Step 4**: Choose Architecture.
+  - Selected **64-bit (arm)** architecture.
+
+- **Step 5**: Choose Instance Type.
+  - Chose **t4g.micro** for this case.
+
+- **Step 6**: Configure Key Pair.
+  - Set up key-pair login for the EC2 instance (download the `.pem` file for future access).
+
+- **Step 7**: Configure Security Groups.
+  - Allowed the following traffic:
+    - SSH traffic
+    - HTTPS traffic
+    - HTTP traffic
+  - Selected "Anywhere 0.0.0.0/0" for all.
+
+- **Step 8**: Keep Storage as Default.
+
+- **Step 9**: Review the Instance Summary.
+  - Verified the summary on the right side of the screen before creating the instance.
+
+- **Step 10**: Launch the Instance.
+  - Launched the instance using **EC2 Instance Connect** instead of using the `.pem` file.
+
+- **Note**: Downloaded the key pair (`.pem` file) for future access.
+
+### 2. Install Nginx on AWS EC2 Instance
+
+Run the following commands on the EC2 instance:
+
+```bash
+sudo apt-get update
+sudo apt-get install nginx
+sudo service nginx start
+sudo service nginx status
+```
+
+Now, Copy the PublicIPs of the EC2 instance and paste it in your browser. A default nginx web-page shall appear...
+
+
+### 3. Cloned the CI-CD git repository on EC2 instance
+```bash
+git clone https://github.com/Aditya-rgb/CI-CD-Pipeline.git
+
+```
+   
+- Copied the deployment.py and cloning.sh to different directory in the EC2 instance.
+- Made the config changes and the path location changes in the deployment.py
+- Gave chmod +x (executable) permissions to the bash script responsible for cloning or pulling and copy pasting the sample HTML code file to nginx location.
+- Made a small commit on github for the deployment.py to detect the commit made.
+  
+```bash
+python3 deployment.py
+```   
+   
+Did a refresh to the public IP of the EC2 instance on the web browser and the website got rendered successfully :)
 
 ## Testing Phase
 
