@@ -175,3 +175,19 @@ sudo service nginx status
 Now, Copy the PublicIPs of the EC2 instance and paste it in your browser. A default nginx web-page shall appear...
 
 
+### 3. Cloned the CI-CD git repository on EC2 instance
+```bash
+git clone https://github.com/Aditya-rgb/CI-CD-Pipeline.git
+
+```
+   
+Copied the deployment.py and cloning.sh to different directory in the EC2 instance.
+Made the config changes and the path location changes in the deployment.py
+Gave chmod +x (executable) permissions to the bash script responsible for cloning or pulling and copy pasting the sample HTML code file to nginx location.
+Made a small commit on github for the deployment.py to detect the commit made.
+```bash
+python3 deployment.py
+```   
+   
+Did a refresh to the public IP of the EC2 instance on the web browser and the website got rendered successfully :)
+
