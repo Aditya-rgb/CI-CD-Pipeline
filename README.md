@@ -170,6 +170,7 @@ sudo apt-get update
 sudo apt-get install nginx
 sudo service nginx start
 sudo service nginx status
+```
 
 Now, Copy the PublicIPs of the EC2 instance and paste it in your browser. A default nginx web-page shall appear...
 
