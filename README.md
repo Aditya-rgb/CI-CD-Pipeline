@@ -183,3 +183,56 @@ Did a refresh to the public IP of the EC2 instance on the web browser and the we
 
 
 
+## Troubleshooting
+
+If you encounter issues, here are some common troubleshooting steps:
+
+1. **Nginx not starting:**
+   - Ensure the service is installed and running.
+     ```bash
+     sudo service nginx start
+     sudo service nginx status
+     ```
+   - Check if port 80 is already in use.
+     ```bash
+     sudo lsof -i:80
+     ```
+
+2. **Public IP not working:**
+   - Confirm that your security group allows inbound traffic on HTTP (port 80) and HTTPS (port 443).
+   - Double-check that Nginx is running and serving your application.
+
+3. **GitHub repository not cloning:**
+   - Make sure that the EC2 instance has internet access and that Git is installed.
+     ```bash
+     sudo apt-get install git
+     ```
+
+4. **Website not updating after a new commit:**
+   - Ensure that the `deployment.py` script is running correctly.
+   - Verify the `cloning.sh` script has executable permissions.
+   - Check the cron job or automation settings if applicable.
+
+
+## Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes with clear messages.
+4. Submit a pull request for review.
+
+Make sure to follow the code style guidelines and include proper documentation for any new features.
+
+
+## Contact
+
+For any queries, feel free to contact me:
+
+- **Email:** adityavakharia@gmail.com
+- **GitHub:** [Aditya-rgb](https://github.com/Aditya-rgb)
+
+You can also open an issue in the repository for questions or suggestions.
+
+
