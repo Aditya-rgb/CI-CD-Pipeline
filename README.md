@@ -181,10 +181,10 @@ git clone https://github.com/Aditya-rgb/CI-CD-Pipeline.git
 
 ```
    
-Copied the deployment.py and cloning.sh to different directory in the EC2 instance.
-Made the config changes and the path location changes in the deployment.py
-Gave chmod +x (executable) permissions to the bash script responsible for cloning or pulling and copy pasting the sample HTML code file to nginx location.
-Made a small commit on github for the deployment.py to detect the commit made.
+**Copied the deployment.py and cloning.sh to different directory in the EC2 instance.
+**Made the config changes and the path location changes in the deployment.py
+**Gave chmod +x (executable) permissions to the bash script responsible for cloning or pulling and copy pasting the sample HTML code file to nginx location.
+**Made a small commit on github for the deployment.py to detect the commit made.
 ```bash
 python3 deployment.py
 ```   
