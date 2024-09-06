@@ -1,4 +1,4 @@
- CI/CD Pipeline 
+# CI/CD Pipeline 
 ## Introduction
 
 The problem statement involves automating the deployment of a website using a CI/CD pipeline. The pipeline integrates Python and Bash scripts to detect GitHub commits and deploy the website on an Nginx server hosted on an AWS EC2 instance or a local Linux server.
