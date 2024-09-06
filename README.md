@@ -84,7 +84,7 @@ The problem statement involves automating the deployment of a website using a CI
      ```
 
 3. **Verify Bash Script Execution**:
-   - The Bash script should clone the repository, pull the latest changes, and update the Nginx location `/var/www/html/`.
+   - The Bash script should clone the repository, pull the latest changes, and update the Nginx location `/var/www/html/`by copying the smaple HTML project files to this location.
 
 4. **Check Nginx Status**:
    - Verify Nginx status:
