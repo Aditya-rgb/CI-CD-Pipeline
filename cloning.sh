@@ -4,16 +4,16 @@
 #      CONFIGURATION        #
 #---------------------------#
 
-# GitHub repository URL
+# Github Repository URL.
 REPO_URL="https://github.com/Aditya-rgb/CI-CD-Pipeline.git"
 
-# Local directory to clone/pull the repository
+# Defining a local directory to clone/pull the repository
 REPO_DIR="/home/$USER/CI-CD-Pipeline/"  # Change this to your desired local path
 
-# Remove the cloned repository directory if already exists with old code.
+# Removing the cloned repository directory if it already exists with old code.
 sudo rm -rf $REPO_DIR
 
-# Check if the delete operation was successful
+# Checking if the above command was successfull or not.
 if [ $? -ne 0 ]; then
     echo "Failed to delete the old cloned repository!"
     exit 1
@@ -26,7 +26,7 @@ echo "Old Cloned repository deleted successfully!"
 # Making the repo dir to fetch the latest changes from github.
 sudo mkdir REPO_DIR
 
-# Directory to copy the scripts to (e.g., where Nginx serves files)
+# Directory to copy the scripts to (e.g., where Nginx serves files resides i.e /var/www/html/)
 TARGET_DIR="/var/www/html/"  # Change this to your target directory
 
 # Branch to pull from
@@ -38,7 +38,7 @@ BRANCH="main"
 
 echo "Starting the pulling and downloading of scripts... :)"
 
-# Function to clone the repository if it doesn't exist
+# Created the function to clone the repository if it doesn't exist
 clone_repo() {
             echo "Cloning repository..."
             # Command to clone the repository into your linux directory...
@@ -50,7 +50,7 @@ clone_repo() {
             fi
              }
 
-# Function to pull the latest changes
+# Created the function to pull the latest changes from the git
 pull_repo() {
             echo "Pulling latest changes..."
             # Command to pull the latest code base if any new commits were made and were detected by the python script..
@@ -75,10 +75,10 @@ fi
 
 echo "Copying scripts to Nginx location..."
 
-# Copy the contents of the repository to the target directory
+# Copying the contents of the repository to the target directory now i.e nginx location...
 sudo cp -r $REPO_DIR* $TARGET_DIR
 
-# Check if the copy operation was successful
+# Checking if the above copy operation was successful or not ...
 if [ $? -ne 0 ]; then
     echo "Failed to copy files to the Nginx location!"
     exit 1
