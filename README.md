@@ -1,7 +1,7 @@
 # CI/CD Pipeline 
 ## Introduction
 
-The problem statement involves automating the deployment of a website using a CI/CD pipeline. The pipeline integrates Python and Bash scripts to detect GitHub commits and deploy the website on an Nginx server hosted on an AWS EC2 instance or a local Linux server.
+The problem statement involves automating the deployment of a website using a CI/CD pipeline. The pipeline integrates Python and Bash scripts to detect GitHub commits and deploy the website on an Nginx server hosted on an AWS EC2 instance or a local Linux server. When ever a change or commit is made to the git repo, the python script detects the concerned commit and automatically places the updated sample HTML project files to nginx location. 
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The problem statement involves automating the deployment of a website using a CI
      - Fetches commit history for the past 10 minutes (configurable).
 
 3. **Create Bash Script**:
-   - Develop a Bash script to clone the repository whenever a new commit is detected by the Python script.
+   - Developed a Bash script to clone the repository whenever a new commit is detected by the Python script.
    - Key Aspects:
      - Clone repository upon commit detection.
      - Perform `git pull` on the local server.
@@ -56,7 +56,7 @@ The problem statement involves automating the deployment of a website using a CI
    - Configure the path to the Bash script in the Python script (`bash_script_path`).
 
 5. **Automate with Crontab**:
-   - Use crontab to run the Python script at a specified interval to detect changes and update the website.
+   - Used crontab to run the Python script at a specified interval to detect changes and update the website.
    - Example crontab entry:
      ```bash
      */10 * * * * /usr/bin/python3 /path/to/your/deployment.py >> /path/to/your/logfile.log 2>&1
@@ -71,10 +71,10 @@ The problem statement involves automating the deployment of a website using a CI
 #### 1. Launch EC2 Instance
 
 - **Step 1**: Sign in to the AWS Console.
-  - Navigate to the [AWS Management Console](https://aws.amazon.com/console/), and log in to your AWS account.
+  - Navigated to the [AWS Management Console](https://aws.amazon.com/console/), and logged in to my AWS account.
   
 - **Step 2**: Navigate to EC2.
-  - From the services menu, search for **EC2** and select **Launch Instance**.
+  - From the services menu, searcedh for **EC2** and selected **Launch Instance**.
 
 - **Step 3**: Choose an Operating System.
   - Opted for **Ubuntu** as the OS.
@@ -95,7 +95,7 @@ The problem statement involves automating the deployment of a website using a CI
     - HTTP traffic
   - Selected "Anywhere 0.0.0.0/0" for all.
 
-- **Step 8**: Keep Storage as Default.
+- **Step 8**: Kept Storage as Default.
 
 - **Step 9**: Review the Instance Summary.
   - Verified the summary on the right side of the screen before creating the instance.
