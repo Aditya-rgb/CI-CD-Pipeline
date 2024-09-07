@@ -18,7 +18,7 @@ current_time = datetime.now(timezone.utc)  # Use timezone-aware datetime object
 response = requests.get(api_url)
 commits = response.json()
 
-# Checking for new commits
+# Now, Checking for new commits
 new_commits = []
 for commit in commits:
     commit_time = datetime.strptime(commit['commit']['author']['date'], "%Y-%m-%dT%H:%M:%SZ")

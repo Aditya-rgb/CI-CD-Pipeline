@@ -43,7 +43,7 @@ clone_repo() {
             echo "Cloning repository..."
             # Command to clone the repository into your linux directory...
             git clone -b $BRANCH $REPO_URL $REPO_DIR
-            # Now putting a if statement tocheck the status of the last executed command using $?
+            # Now putting a if statement to check the status of the last executed command using $?
             if [ $? -ne 0 ]; then
                     echo "Failed to clone your repository. Fix it!!"
                     exit 1
@@ -86,21 +86,5 @@ fi
 
 echo "Files copied successfully!"
 
-#---------------------------#
-#    DELETE CLONED REPO      #
-#---------------------------#
-
-#echo "Deleting the cloned repository..."
-
-# Remove the cloned repository directory
-#sudo rm -rf $REPO_DIR
-
-# Check if the delete operation was successful
-#if [ $? -ne 0 ]; then
-#    echo "Failed to delete the cloned repository!"
-#    exit 1
-#fi
-
-#echo "Cloned repository deleted successfully!"
 
 echo "Script execution completed successfully!"
